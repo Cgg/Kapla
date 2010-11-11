@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="ISO8859-1" ?>
+<!DOCTYPE SherlockUnit SYSTEM "SherlockUnit.dtd">
+
+<SherlockUnit>
+ <SherlockVersion> Version 06/2010 </SherlockVersion>
+ <NAME> constat </NAME>
+ <CREATION> 11/9/2010 11:11:23 AM </CREATION>
+ <UPDATE> 11/11/2010 3:45:31 PM </UPDATE>
+
+ <CONFIGURATION>
+  <TraceSystem> extended </TraceSystem>
+  <TraceExec> extended </TraceExec>
+  <Autosave> OFF </Autosave>
+  <Dialog>
+   <LabelSuite> Suite </LabelSuite>
+   <LabelEnd> Fin Exec </LabelEnd>
+   <LabelYes> oui </LabelYes>
+   <LabelNo> non </LabelNo>
+   <LabelKnown> connu </LabelKnown>
+   <LabelUnknown> inconnu </LabelUnknown>
+  </Dialog>
+  <Unconsistency>
+   <StandardProcess> ON </StandardProcess>
+   <StandardDescription> OFF </StandardDescription>
+   <InvolvedFact> ON </InvolvedFact>
+   <InvolvedRule> ON </InvolvedRule>
+   <FactIn> ²Le problème§incohérence portant sur </FactIn>
+   <RuleIn> ²Le problème§incohérence détectée par </RuleIn>
+  </Unconsistency>
+ </CONFIGURATION>
+
+ <TASKDEFS>
+  <TASKDEF  name="Tâche Principale">
+  </TASKDEF>
+ </TASKDEFS>
+
+ <BASEDEFS>
+  <METABASEDEF  name="Base de Méta Règles">
+  </METABASEDEF>
+  <BASEDEF  name="Base de Règles">
+  </BASEDEF>
+  <BASEDEF  name="Cohérence des circonstances">
+    <PartOf> Base de Règles </PartOf>
+  </BASEDEF>
+  <BASEDEF  name="Cohérence du constat">
+    <PartOf> Base de Règles </PartOf>
+  </BASEDEF>
+ </BASEDEFS>
+
+ <METACONCEPTS>
+  <METACONCEPT  name="²Elément de Connaissance">
+  </METACONCEPT>
+  <METACONCEPT  name="²Connaissance de Résolution">
+   <AKindOf> ²Elément de Connaissance </AKindOf>
+  </METACONCEPT>
+  <METACONCEPT  name="²Connaissance de Domaine">
+   <AKindOf> ²Elément de Connaissance </AKindOf>
+  </METACONCEPT>
+  <METACONCEPT  name="²Modèle">
+   <AKindOf> ²Connaissance de Domaine </AKindOf>
+   <ATTRIBUTES>
+    <String  name="nom">
+    </String>
+   </ATTRIBUTES>
+   <INSTANCES>
+    <INSTANCE  name="²Le modèle"> 
+     <ATTRIBUTES>
+      <String  name="nom">
+       <ToAffirm> nom du modèle : ^ </ToAffirm>
+      </String>
+     </ATTRIBUTES>
+    </INSTANCE> 
+   </INSTANCES>
+  </METACONCEPT>
+  <METACONCEPT  name="²Problème">
+   <AKindOf> ²Connaissance de Résolution </AKindOf>
+   <ATTRIBUTES>
+    <Boolean  name="incohérence à l'exécution">
+       <InitialNEQ> vrai </InitialNEQ>
+       <InitialEQ> faux </InitialEQ>
+     <ToDeny> Aucune incohérence à l'exécution </ToDeny>
+     <ToAffirm> Une incohérence est apparue lors de l'exécution </ToAffirm>
+    </Boolean>
+    <String  name="incohérence détectée par">
+     <ToAffirm> L'incohérence a été détectée par ^ </ToAffirm>
+    </String>
+    <String  name="incohérence portant sur">
+     <ToAffirm> L'incohérence porte sur ^ </ToAffirm>
+    </String>
+   </ATTRIBUTES>
+   <INSTANCES>
+    <INSTANCE  name="²Le problème"> 
+     <ATTRIBUTES>
+      <Boolean  name="incohérence à l'exécution">
+       <ToDeny> Aucune incohérence à l'exécution </ToDeny>
+       <ToAffirm> Une incohérence est apparue lors de l'exécution </ToAffirm>
+      </Boolean>
+      <String  name="incohérence détectée par">
+       <ToAffirm> L'incohérence a été détectée par ^ </ToAffirm>
+      </String>
+      <String  name="incohérence portant sur">
+       <ToAffirm> L'incohérence porte sur ^ </ToAffirm>
+      </String>
+     </ATTRIBUTES>
+    </INSTANCE> 
+   </INSTANCES>
+  </METACONCEPT>
+  <METACONCEPT  name="²Règle">
+   <AKindOf> ²Connaissance de Résolution </AKindOf>
+   <ATTRIBUTES>
+    <String  name="nom">
+     <ToAffirm> ^ </ToAffirm>
+    </String>
+    <String  name="base">
+     <ToAffirm> La règle ^I appartient à la base ^ </ToAffirm>
+    </String>
+    <String  name="commentaire">
+     <ToAffirm> ^ </ToAffirm>
+    </String>
+    <Boolean  name="utilisée">
+       <InitialNEQ> vrai </InitialNEQ>
+       <InitialEQ> faux </InitialEQ>
+     <ToDeny> La règle ^I n'a pas été utilisée </ToDeny>
+     <ToAffirm> La règle ^I a été utilisée </ToAffirm>
+    </Boolean>
+   </ATTRIBUTES>
+  </METACONCEPT>
+  <METACONCEPT  name="²Base de Règles">
+   <AKindOf> ²Connaissance de Résolution </AKindOf>
+   <ATTRIBUTES>
+    <String  name="nom">
+     <ToAffirm> ^ </ToAffirm>
+    </String>
+    <String  name="partie de">
+     <ToAffirm> La base ^I est une sous-base de ^ </ToAffirm>
+    </String>
+    <String  name="commentaire">
+     <ToAffirm> ^ </ToAffirm>
+    </String>
+    <Boolean  name="inhibée">
+     <ToDeny> La base ^I n'est pas inhibée </ToDeny>
+     <ToAffirm> La base ^I est inhibée </ToAffirm>
+    </Boolean>
+    <Numerical  name="nb règles">
+     <Min> 0 </Min>
+     <Max> 1024 </Max>
+       <InitialEQ> 0 </InitialEQ>
+     <ToAffirm> Le nombre de règles de la base ^I est : ^ </ToAffirm>
+    </Numerical>
+   </ATTRIBUTES>
+  </METACONCEPT>
+  <METACONCEPT  name="²Méta Règle">
+   <AKindOf> ²Connaissance de Résolution </AKindOf>
+   <ATTRIBUTES>
+    <String  name="nom">
+     <ToAffirm> ^ </ToAffirm>
+    </String>
+    <String  name="base">
+     <ToAffirm> La méta-règle ^I appartient à la base ^ </ToAffirm>
+    </String>
+    <String  name="commentaire">
+     <ToAffirm> ^ </ToAffirm>
+    </String>
+    <Boolean  name="utilisée">
+       <InitialNEQ> vrai </InitialNEQ>
+       <InitialEQ> faux </InitialEQ>
+     <ToDeny> La méta-règle ^I n'a pas été utilisée </ToDeny>
+     <ToAffirm> La méta-règle ^I a été utilisée </ToAffirm>
+    </Boolean>
+   </ATTRIBUTES>
+  </METACONCEPT>
+  <METACONCEPT  name="²Base de Méta Règles">
+   <AKindOf> ²Connaissance de Résolution </AKindOf>
+   <ATTRIBUTES>
+    <String  name="nom">
+     <ToAffirm> ^ </ToAffirm>
+    </String>
+    <String  name="partie de">
+     <ToAffirm> La base ^I est une sous-base de ^ </ToAffirm>
+    </String>
+    <String  name="commentaire">
+     <ToAffirm> ^ </ToAffirm>
+    </String>
+    <Boolean  name="inhibée">
+     <ToDeny> La base ^I n'est pas inhibée </ToDeny>
+     <ToAffirm> La base ^I est inhibée </ToAffirm>
+    </Boolean>
+    <Numerical  name="nb méta règles">
+     <Min> 0 </Min>
+     <Max> 1024 </Max>
+       <InitialEQ> 0 </InitialEQ>
+     <ToAffirm> Le nombre de règles de la base ^I est : ^ </ToAffirm>
+    </Numerical>
+   </ATTRIBUTES>
+  </METACONCEPT>
+  <METACONCEPT  name="²Tâche">
+   <AKindOf> ²Connaissance de Résolution </AKindOf>
+   <ATTRIBUTES>
+    <String  name="nom">
+     <ToAffirm> ^ </ToAffirm>
+    </String>
+    <Boolean  name="activée">
+       <InitialNEQ> vrai </InitialNEQ>
+       <InitialEQ> faux </InitialEQ>
+     <ToDeny> La tâche ^I n'a pas été activée </ToDeny>
+     <ToAffirm> La tâche ^I a été activée </ToAffirm>
+    </Boolean>
+    <Boolean  name="achevée">
+       <InitialNEQ> vrai </InitialNEQ>
+       <InitialEQ> faux </InitialEQ>
+     <ToDeny> La tâche ^I n'est pas achevée </ToDeny>
+     <ToAffirm> La tâche ^I est achevée </ToAffirm>
+    </Boolean>
+   </ATTRIBUTES>
+  </METACONCEPT>
+ </METACONCEPTS>
+
+ <CONCEPTS>
+  <CONCEPT  name="Chose">
+   <PartOf> •Monde• </PartOf>
+   <SetOf> •• </SetOf>
+   <NbSet> 0 </NbSet>
+   <Abstract> no </Abstract>
+        <Left> 10 </Left>
+        <Top> 10 </Top>
+   <PROPERTIES>
+     <Numerical  name="nb instances">
+     <Min> 0 </Min>
+     <Max> 1024 </Max>
+       <InitialEQ> 0 </InitialEQ>
+     </Numerical>
+     <Numerical  name="nb global instances">
+     <Min> 0 </Min>
+     <Max> 1024 </Max>
+       <InitialEQ> 0 </InitialEQ>
+     </Numerical>
+   </PROPERTIES>
+  </CONCEPT>
+  <CONCEPT  name="Conducteur">
+   <AKindOf> Chose </AKindOf>
+   <PartOf> •Monde• </PartOf>
+   <SetOf> •• </SetOf>
+   <NbSet> 0 </NbSet>
+   <Abstract> no </Abstract>
+        <Left> 261 </Left>
+        <Top> 198 </Top>
+   <PROPERTIES>
+     <Numerical  name="nb instances">
+     <Inherited> yes </Inherited>
+     <Min> 0 </Min>
+     <Max> 1024 </Max>
+       <InitialEQ> 0 </InitialEQ>
+     </Numerical>
+     <Numerical  name="nb global instances">
+     <Inherited> yes </Inherited>
+     <Min> 0 </Min>
+     <Max> 1024 </Max>
+       <InitialEQ> 0 </InitialEQ>
+     </Numerical>
+   </PROPERTIES>
+   <ATTRIBUTES>
+    <Numerical  name="tort">
+     <Min> 0 </Min>
+     <Max> 100 </Max>
+    </Numerical>
+    <Boolean  name="A fait une faute grave">
+     <Strategy>
+     <Strat> règle </Strat>
+     </Strategy>
+    </Boolean>
+   </ATTRIBUTES>
+  </CONCEPT>
+  <CONCEPT  name="Constat d'accident">
+   <AKindOf> Chose </AKindOf>
+   <PartOf> •Monde• </PartOf>
+   <SetOf> •• </SetOf>
+   <NbSet> 0 </NbSet>
+   <Abstract> no </Abstract>
+        <Left> 266 </Left>
+        <Top> 218 </Top>
+   <PROPERTIES>
+     <Numerical  name="nb instances">
+     <Inherited> yes </Inherited>
+     <Min> 0 </Min>
+     <Max> 1024 </Max>
+       <InitialEQ> 0 </InitialEQ>
+     </Numerical>
+     <Numerical  name="nb global instances">
+     <Inherited> yes </Inherited>
+     <Min> 0 </Min>
+     <Max> 1024 </Max>
+       <InitialEQ> 0 </InitialEQ>
+     </Numerical>
+   </PROPERTIES>
+   <ATTRIBUTES>
+    <Boolean  name="cohérence">
+       <DefaultEQ> vrai </DefaultEQ>
+       <DefaultNEQ> faux </DefaultNEQ>
+     <Strategy>
+     <Strat> règle </Strat>
+     </Strategy>
+    </Boolean>
+    <String  name="lieu">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </String>
+    <String  name="date">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </String>
+    <String  name="témoins">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </String>
+    <Boolean  name="blessés">
+    </Boolean>
+    <Monovalued  name="catégorie accident">
+     <Values>
+      <Val> 
+        <Value> véhicule en stationnement </Value>
+        <Left> 0 </Left>
+        <Top> 0 </Top>
+      </Val> 
+      <Val> 
+        <Value> véhicule quittant un stationnement </Value>
+        <Left> 0 </Left>
+        <Top> 0 </Top>
+      </Val> 
+      <Val> 
+        <Value> véhicules provenant de chausées différentes </Value>
+        <Left> 0 </Left>
+        <Top> 0 </Top>
+      </Val> 
+      <Val> 
+        <Value> véhicules roulant dans le même sens dans la même file </Value>
+        <Left> 0 </Left>
+        <Top> 0 </Top>
+      </Val> 
+      <Val> 
+        <Value> véhicules roulant même sens files différentes ou chgt de file </Value>
+        <Left> 0 </Left>
+        <Top> 0 </Top>
+      </Val> 
+      <Val> 
+        <Value> véhicules roulant en sens inverse </Value>
+        <Left> 0 </Left>
+        <Top> 0 </Top>
+      </Val> 
+     </Values>
+    </Monovalued>
+   </ATTRIBUTES>
+  </CONCEPT>
+  <CONCEPT  name="Observations">
+   <AKindOf> Chose </AKindOf>
+   <PartOf> •Monde• </PartOf>
+   <SetOf> •• </SetOf>
+   <NbSet> 0 </NbSet>
+   <Abstract> no </Abstract>
+        <Left> 271 </Left>
+        <Top> 238 </Top>
+   <PROPERTIES>
+     <Numerical  name="nb instances">
+     <Inherited> yes </Inherited>
+     <Min> 0 </Min>
+     <Max> 1024 </Max>
+       <InitialEQ> 0 </InitialEQ>
+     </Numerical>
+     <Numerical  name="nb global instances">
+     <Inherited> yes </Inherited>
+     <Min> 0 </Min>
+     <Max> 1024 </Max>
+       <InitialEQ> 0 </InitialEQ>
+     </Numerical>
+   </PROPERTIES>
+   <ATTRIBUTES>
+    <String  name="observations">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </String>
+   </ATTRIBUTES>
+  </CONCEPT>
+  <CONCEPT  name="Circonstances">
+   <AKindOf> Chose </AKindOf>
+   <PartOf> •Monde• </PartOf>
+   <SetOf> •• </SetOf>
+   <NbSet> 0 </NbSet>
+   <Abstract> no </Abstract>
+        <Left> 276 </Left>
+        <Top> 258 </Top>
+   <PROPERTIES>
+     <Numerical  name="nb instances">
+     <Inherited> yes </Inherited>
+     <Min> 0 </Min>
+     <Max> 1024 </Max>
+       <InitialEQ> 0 </InitialEQ>
+     </Numerical>
+     <Numerical  name="nb global instances">
+     <Inherited> yes </Inherited>
+     <Min> 0 </Min>
+     <Max> 1024 </Max>
+       <InitialEQ> 0 </InitialEQ>
+     </Numerical>
+   </PROPERTIES>
+   <ATTRIBUTES>
+    <Boolean  name="1 stationnement arrêt">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 1-stationnement/arrêt? </ToAsk>
+    </Boolean>
+    <Boolean  name="2 quitter stationnement ouvrir portière">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 2 quitter stationnement ouvrir portière? </ToAsk>
+    </Boolean>
+    <Boolean  name="3 prenait stationnement">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 3 prenait stationnement? </ToAsk>
+    </Boolean>
+    <Boolean  name="4 sortait parking lieu privé chemin terre">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 4 sortait parking lieu privé chemin terre? </ToAsk>
+    </Boolean>
+    <Boolean  name="5 s'engageait parking lieu privé chemin terre">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 5 s'engageait parking lieu privé chemin terre </ToAsk>
+    </Boolean>
+    <Boolean  name="6 s'engageait place giratoire">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 6 s'engageait place giratoire? </ToAsk>
+    </Boolean>
+    <Boolean  name="7 roulait sur place giratoire">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 7 roulait sur place giratoire? </ToAsk>
+    </Boolean>
+    <Boolean  name="8 heurter arrière même sens même file">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 8 heurter arrière même sens même file? </ToAsk>
+    </Boolean>
+    <Boolean  name="9 roulait même sens file différente">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 9 roulait même sens file différente? </ToAsk>
+    </Boolean>
+    <Boolean  name="10 changeait de file">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 10 changeait de file? </ToAsk>
+    </Boolean>
+    <Boolean  name="11 doublait">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 11 doublait? </ToAsk>
+    </Boolean>
+    <Boolean  name="12 virait droite">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 12 virait droite? </ToAsk>
+    </Boolean>
+    <Boolean  name="13 virait gauche">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 13 virait gauche? </ToAsk>
+    </Boolean>
+    <Boolean  name="14 reculait">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 14 reculait? </ToAsk>
+    </Boolean>
+    <Boolean  name="15 empiétait voie sens inverse">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 15 empiétait voie sens inverse? </ToAsk>
+    </Boolean>
+    <Boolean  name="16 venait droite carrefour">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 16 venait droite carrefour? </ToAsk>
+    </Boolean>
+    <Boolean  name="17 pas observé signal priorité ou feu rouge">
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+     <ToAsk> 17 pas observé signal priorité ou feu rouge? </ToAsk>
+    </Boolean>
+    <Boolean  name="cohérence">
+     <Strategy>
+     <Strat> règle </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="obs faute grave">
+     <Strategy>
+     <Strat> question </Strat>
+     <Strat> règle </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="obs véhicule arrêté">
+     <Strategy>
+     <Strat> question </Strat>
+     <Strat> règle </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="obs stationnement arrêt régulier">
+     <Strategy>
+     <Strat> question </Strat>
+     <Strat> règle </Strat>
+     </Strategy>
+    </Boolean>
+   </ATTRIBUTES>
+  </CONCEPT>
+ </CONCEPTS>
+
+ <BASES>
+  <BASE  name="Base de Règles">
+    <Inhibited> no </Inhibited>
+  </BASE>
+  <BASE  name="Cohérence des circonstances">
+    <PartOf> Base de Règles </PartOf>
+    <Inhibited> no </Inhibited>
+  </BASE>
+  <BASE  name="Cohérence du constat">
+    <PartOf> Base de Règles </PartOf>
+    <Inhibited> no </Inhibited>
+  </BASE>
+ </BASES>
+
+ <METABASES>
+  <METABASE  name="Base de Méta Règles">
+    <Inhibited> yes </Inhibited>
+  </METABASE>
+ </METABASES>
+</SherlockUnit>
