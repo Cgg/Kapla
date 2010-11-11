@@ -5,7 +5,7 @@
  <SherlockVersion> Version 06/2010 </SherlockVersion>
  <NAME> constat </NAME>
  <CREATION> 11/9/2010 11:11:23 AM </CREATION>
- <UPDATE> 11/11/2010 3:45:31 PM </UPDATE>
+ <UPDATE> 11/11/2010 18:06:31 </UPDATE>
 
  <CONFIGURATION>
   <TraceSystem> extended </TraceSystem>
@@ -43,6 +43,15 @@
     <PartOf> Base de Règles </PartOf>
   </BASEDEF>
   <BASEDEF  name="Cohérence du constat">
+    <PartOf> Base de Règles </PartOf>
+  </BASEDEF>
+  <BASEDEF  name="Catégorie de l'accident">
+    <PartOf> Base de Règles </PartOf>
+  </BASEDEF>
+  <BASEDEF  name="Règles conducteur Faute Grave">
+    <PartOf> Base de Règles </PartOf>
+  </BASEDEF>
+  <BASEDEF  name="Règles conducteur tort">
     <PartOf> Base de Règles </PartOf>
   </BASEDEF>
  </BASEDEFS>
@@ -238,7 +247,7 @@
   </CONCEPT>
   <CONCEPT  name="Conducteur">
    <AKindOf> Chose </AKindOf>
-   <PartOf> •Monde• </PartOf>
+   <PartOf> Constat d'accident </PartOf>
    <SetOf> •• </SetOf>
    <NbSet> 0 </NbSet>
    <Abstract> no </Abstract>
@@ -268,7 +277,392 @@
      <Strat> règle </Strat>
      </Strategy>
     </Boolean>
+    <Boolean  name="1 stationnement arrêt">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="2 quitter stationnement ouvrir portière">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="3 prenait stationnement">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="4 sortait parking lieu privé chemin terre">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="5 s'engageait parking lieu privé chemin terre">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="6 s'engageait place giratoire">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="7 roulait sur place giratoire">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="8 heurter arrière même sens même file">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="9 roulait même sens file différente">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="10 changeait de file">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="11 doublait">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="12 virait droite">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="13 virait gauche">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="14 reculait">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="15 empiétait voie sens inverse">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="16 venait droite carrefour">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="17 pas observé signal priorité ou feu rouge">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="cohérence">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> règle </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="obs faute grave">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     <Strat> règle </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="obs véhicule arrêté">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     <Strat> règle </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="obs stationnement arrêt régulier">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     <Strat> règle </Strat>
+     </Strategy>
+    </Boolean>
+    <String  name="observations">
+     <From> •Observations </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </String>
    </ATTRIBUTES>
+   <INSTANCES>
+    <INSTANCE  name="Inconscient n.1"> 
+        <Left> 281 </Left>
+        <Top> 278 </Top>
+     <ATTRIBUTES>
+      <Numerical  name="tort">
+       <ToAsk> Que vaut  tort de Inconscient n.1 ? </ToAsk>
+       <ToAffirm> tort de Inconscient n.1 = ^ </ToAffirm>
+      </Numerical>
+      <Boolean  name="A fait une faute grave">
+       <ToAsk> Est ce que  A fait une faute grave de Inconscient n.1 ? </ToAsk>
+       <ToDeny> A fait une faute grave de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> A fait une faute grave de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="1 stationnement arrêt">
+       <ToAsk> Est ce que  1 stationnement arrêt de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 1 stationnement arrêt de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 1 stationnement arrêt de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="2 quitter stationnement ouvrir portière">
+       <ToAsk> Est ce que  2 quitter stationnement ouvrir portière de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 2 quitter stationnement ouvrir portière de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 2 quitter stationnement ouvrir portière de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="3 prenait stationnement">
+       <ToAsk> Est ce que  3 prenait stationnement de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 3 prenait stationnement de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 3 prenait stationnement de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="4 sortait parking lieu privé chemin terre">
+       <ToAsk> Est ce que  4 sortait parking lieu privé chemin terre de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 4 sortait parking lieu privé chemin terre de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 4 sortait parking lieu privé chemin terre de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="5 s'engageait parking lieu privé chemin terre">
+       <ToAsk> Est ce que  5 s'engageait parking lieu privé chemin terre de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 5 s'engageait parking lieu privé chemin terre de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 5 s'engageait parking lieu privé chemin terre de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="6 s'engageait place giratoire">
+       <ToAsk> Est ce que  6 s'engageait place giratoire de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 6 s'engageait place giratoire de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 6 s'engageait place giratoire de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="7 roulait sur place giratoire">
+       <ToAsk> Est ce que  7 roulait sur place giratoire de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 7 roulait sur place giratoire de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 7 roulait sur place giratoire de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="8 heurter arrière même sens même file">
+       <ToAsk> Est ce que  8 heurter arrière même sens même file de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 8 heurter arrière même sens même file de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 8 heurter arrière même sens même file de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="9 roulait même sens file différente">
+       <ToAsk> Est ce que  9 roulait même sens file différente de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 9 roulait même sens file différente de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 9 roulait même sens file différente de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="10 changeait de file">
+       <ToAsk> Est ce que  10 changeait de file de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 10 changeait de file de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 10 changeait de file de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="11 doublait">
+       <ToAsk> Est ce que  11 doublait de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 11 doublait de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 11 doublait de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="12 virait droite">
+       <ToAsk> Est ce que  12 virait droite de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 12 virait droite de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 12 virait droite de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="13 virait gauche">
+       <ToAsk> Est ce que  13 virait gauche de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 13 virait gauche de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 13 virait gauche de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="14 reculait">
+       <ToAsk> Est ce que  14 reculait de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 14 reculait de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 14 reculait de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="15 empiétait voie sens inverse">
+       <ToAsk> Est ce que  15 empiétait voie sens inverse de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 15 empiétait voie sens inverse de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 15 empiétait voie sens inverse de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="16 venait droite carrefour">
+       <ToAsk> Est ce que  16 venait droite carrefour de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 16 venait droite carrefour de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 16 venait droite carrefour de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="17 pas observé signal priorité ou feu rouge">
+       <ToAsk> Est ce que  17 pas observé signal priorité ou feu rouge de Inconscient n.1 ? </ToAsk>
+       <ToDeny> 17 pas observé signal priorité ou feu rouge de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> 17 pas observé signal priorité ou feu rouge de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="cohérence">
+       <ToAsk> Est ce que  cohérence de Inconscient n.1 ? </ToAsk>
+       <ToDeny> cohérence de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> cohérence de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs faute grave">
+       <ToAsk> Est ce que  obs faute grave de Inconscient n.1 ? </ToAsk>
+       <ToDeny> obs faute grave de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> obs faute grave de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs véhicule arrêté">
+       <ToAsk> Est ce que  obs véhicule arrêté de Inconscient n.1 ? </ToAsk>
+       <ToDeny> obs véhicule arrêté de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> obs véhicule arrêté de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs stationnement arrêt régulier">
+       <ToAsk> Est ce que  obs stationnement arrêt régulier de Inconscient n.1 ? </ToAsk>
+       <ToDeny> obs stationnement arrêt régulier de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> obs stationnement arrêt régulier de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <String  name="observations">
+       <ToAsk> Que vaut  observations de Inconscient n.1 ? </ToAsk>
+       <ToAffirm> observations de Inconscient n.1 = ^ </ToAffirm>
+      </String>
+     </ATTRIBUTES>
+    </INSTANCE> 
+    <INSTANCE  name="Inconscient n.2"> 
+        <Left> 286 </Left>
+        <Top> 298 </Top>
+     <ATTRIBUTES>
+      <Numerical  name="tort">
+       <ToAsk> Que vaut  tort de Inconscient n.2 ? </ToAsk>
+       <ToAffirm> tort de Inconscient n.2 = ^ </ToAffirm>
+      </Numerical>
+      <Boolean  name="A fait une faute grave">
+       <ToAsk> Est ce que  A fait une faute grave de Inconscient n.2 ? </ToAsk>
+       <ToDeny> A fait une faute grave de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> A fait une faute grave de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="1 stationnement arrêt">
+       <ToAsk> Est ce que  1 stationnement arrêt de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 1 stationnement arrêt de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 1 stationnement arrêt de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="2 quitter stationnement ouvrir portière">
+       <ToAsk> Est ce que  2 quitter stationnement ouvrir portière de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 2 quitter stationnement ouvrir portière de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 2 quitter stationnement ouvrir portière de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="3 prenait stationnement">
+       <ToAsk> Est ce que  3 prenait stationnement de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 3 prenait stationnement de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 3 prenait stationnement de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="4 sortait parking lieu privé chemin terre">
+       <ToAsk> Est ce que  4 sortait parking lieu privé chemin terre de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 4 sortait parking lieu privé chemin terre de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 4 sortait parking lieu privé chemin terre de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="5 s'engageait parking lieu privé chemin terre">
+       <ToAsk> Est ce que  5 s'engageait parking lieu privé chemin terre de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 5 s'engageait parking lieu privé chemin terre de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 5 s'engageait parking lieu privé chemin terre de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="6 s'engageait place giratoire">
+       <ToAsk> Est ce que  6 s'engageait place giratoire de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 6 s'engageait place giratoire de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 6 s'engageait place giratoire de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="7 roulait sur place giratoire">
+       <ToAsk> Est ce que  7 roulait sur place giratoire de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 7 roulait sur place giratoire de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 7 roulait sur place giratoire de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="8 heurter arrière même sens même file">
+       <ToAsk> Est ce que  8 heurter arrière même sens même file de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 8 heurter arrière même sens même file de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 8 heurter arrière même sens même file de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="9 roulait même sens file différente">
+       <ToAsk> Est ce que  9 roulait même sens file différente de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 9 roulait même sens file différente de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 9 roulait même sens file différente de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="10 changeait de file">
+       <ToAsk> Est ce que  10 changeait de file de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 10 changeait de file de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 10 changeait de file de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="11 doublait">
+       <ToAsk> Est ce que  11 doublait de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 11 doublait de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 11 doublait de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="12 virait droite">
+       <ToAsk> Est ce que  12 virait droite de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 12 virait droite de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 12 virait droite de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="13 virait gauche">
+       <ToAsk> Est ce que  13 virait gauche de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 13 virait gauche de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 13 virait gauche de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="14 reculait">
+       <ToAsk> Est ce que  14 reculait de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 14 reculait de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 14 reculait de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="15 empiétait voie sens inverse">
+       <ToAsk> Est ce que  15 empiétait voie sens inverse de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 15 empiétait voie sens inverse de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 15 empiétait voie sens inverse de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="16 venait droite carrefour">
+       <ToAsk> Est ce que  16 venait droite carrefour de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 16 venait droite carrefour de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 16 venait droite carrefour de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="17 pas observé signal priorité ou feu rouge">
+       <ToAsk> Est ce que  17 pas observé signal priorité ou feu rouge de Inconscient n.2 ? </ToAsk>
+       <ToDeny> 17 pas observé signal priorité ou feu rouge de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> 17 pas observé signal priorité ou feu rouge de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="cohérence">
+       <ToAsk> Est ce que  cohérence de Inconscient n.2 ? </ToAsk>
+       <ToDeny> cohérence de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> cohérence de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs faute grave">
+       <ToAsk> Est ce que  obs faute grave de Inconscient n.2 ? </ToAsk>
+       <ToDeny> obs faute grave de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> obs faute grave de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs véhicule arrêté">
+       <ToAsk> Est ce que  obs véhicule arrêté de Inconscient n.2 ? </ToAsk>
+       <ToDeny> obs véhicule arrêté de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> obs véhicule arrêté de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs stationnement arrêt régulier">
+       <ToAsk> Est ce que  obs stationnement arrêt régulier de Inconscient n.2 ? </ToAsk>
+       <ToDeny> obs stationnement arrêt régulier de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> obs stationnement arrêt régulier de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <String  name="observations">
+       <ToAsk> Que vaut  observations de Inconscient n.2 ? </ToAsk>
+       <ToAffirm> observations de Inconscient n.2 = ^ </ToAffirm>
+      </String>
+     </ATTRIBUTES>
+    </INSTANCE> 
+   </INSTANCES>
   </CONCEPT>
   <CONCEPT  name="Constat d'accident">
    <AKindOf> Chose </AKindOf>
@@ -352,10 +746,47 @@
      </Values>
     </Monovalued>
    </ATTRIBUTES>
+   <INSTANCES>
+    <INSTANCE  name="C"> 
+        <Left> 291 </Left>
+        <Top> 318 </Top>
+     <ATTRIBUTES>
+      <Boolean  name="cohérence">
+       <DefaultEQ> vrai </DefaultEQ>
+       <DefaultNEQ> faux </DefaultNEQ>
+       <ToAsk> Est ce que  cohérence de C ? </ToAsk>
+       <ToDeny> cohérence de C est faux </ToDeny>
+       <ToAffirm> cohérence de C est vrai </ToAffirm>
+      </Boolean>
+      <String  name="lieu">
+       <ToAsk> Que vaut  lieu de C ? </ToAsk>
+       <ToAffirm> lieu de C = ^ </ToAffirm>
+      </String>
+      <String  name="date">
+       <ToAsk> Que vaut  date de C ? </ToAsk>
+       <ToAffirm> date de C = ^ </ToAffirm>
+      </String>
+      <String  name="témoins">
+       <ToAsk> Que vaut  témoins de C ? </ToAsk>
+       <ToAffirm> témoins de C = ^ </ToAffirm>
+      </String>
+      <Boolean  name="blessés">
+       <ToAsk> Est ce que  blessés de C ? </ToAsk>
+       <ToDeny> blessés de C est faux </ToDeny>
+       <ToAffirm> blessés de C est vrai </ToAffirm>
+      </Boolean>
+      <Monovalued  name="catégorie accident">
+       <ToAsk> Que vaut  catégorie accident de C ? </ToAsk>
+       <ToDeny> catégorie accident de C # ^ </ToDeny>
+       <ToAffirm> catégorie accident de C = ^ </ToAffirm>
+      </Monovalued>
+     </ATTRIBUTES>
+    </INSTANCE> 
+   </INSTANCES>
   </CONCEPT>
   <CONCEPT  name="Observations">
    <AKindOf> Chose </AKindOf>
-   <PartOf> •Monde• </PartOf>
+   <PartOf> Conducteur </PartOf>
    <SetOf> •• </SetOf>
    <NbSet> 0 </NbSet>
    <Abstract> no </Abstract>
@@ -382,10 +813,32 @@
      </Strategy>
     </String>
    </ATTRIBUTES>
+   <INSTANCES>
+    <INSTANCE  name="Observations 1"> 
+        <Left> 296 </Left>
+        <Top> 338 </Top>
+     <ATTRIBUTES>
+      <String  name="observations">
+       <ToAsk> Que vaut  observations de Observations 1 ? </ToAsk>
+       <ToAffirm> observations de Observations 1 = ^ </ToAffirm>
+      </String>
+     </ATTRIBUTES>
+    </INSTANCE> 
+    <INSTANCE  name="Observations 2"> 
+        <Left> 301 </Left>
+        <Top> 358 </Top>
+     <ATTRIBUTES>
+      <String  name="observations">
+       <ToAsk> Que vaut  observations de Observations 2 ? </ToAsk>
+       <ToAffirm> observations de Observations 2 = ^ </ToAffirm>
+      </String>
+     </ATTRIBUTES>
+    </INSTANCE> 
+   </INSTANCES>
   </CONCEPT>
   <CONCEPT  name="Circonstances">
    <AKindOf> Chose </AKindOf>
-   <PartOf> •Monde• </PartOf>
+   <PartOf> Conducteur </PartOf>
    <SetOf> •• </SetOf>
    <NbSet> 0 </NbSet>
    <Abstract> no </Abstract>
@@ -532,8 +985,244 @@
      </Strategy>
     </Boolean>
    </ATTRIBUTES>
+   <INSTANCES>
+    <INSTANCE  name="Circonstances Conducteur 1"> 
+        <Left> 306 </Left>
+        <Top> 378 </Top>
+     <ATTRIBUTES>
+      <Boolean  name="1 stationnement arrêt">
+       <ToAsk> Est ce que  1 stationnement arrêt de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 1 stationnement arrêt de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 1 stationnement arrêt de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="2 quitter stationnement ouvrir portière">
+       <ToAsk> Est ce que  2 quitter stationnement ouvrir portière de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 2 quitter stationnement ouvrir portière de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 2 quitter stationnement ouvrir portière de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="3 prenait stationnement">
+       <ToAsk> Est ce que  3 prenait stationnement de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 3 prenait stationnement de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 3 prenait stationnement de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="4 sortait parking lieu privé chemin terre">
+       <ToAsk> Est ce que  4 sortait parking lieu privé chemin terre de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 4 sortait parking lieu privé chemin terre de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 4 sortait parking lieu privé chemin terre de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="5 s'engageait parking lieu privé chemin terre">
+       <ToAsk> Est ce que  5 s'engageait parking lieu privé chemin terre de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 5 s'engageait parking lieu privé chemin terre de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 5 s'engageait parking lieu privé chemin terre de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="6 s'engageait place giratoire">
+       <ToAsk> Est ce que  6 s'engageait place giratoire de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 6 s'engageait place giratoire de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 6 s'engageait place giratoire de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="7 roulait sur place giratoire">
+       <ToAsk> Est ce que  7 roulait sur place giratoire de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 7 roulait sur place giratoire de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 7 roulait sur place giratoire de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="8 heurter arrière même sens même file">
+       <ToAsk> Est ce que  8 heurter arrière même sens même file de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 8 heurter arrière même sens même file de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 8 heurter arrière même sens même file de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="9 roulait même sens file différente">
+       <ToAsk> Est ce que  9 roulait même sens file différente de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 9 roulait même sens file différente de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 9 roulait même sens file différente de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="10 changeait de file">
+       <ToAsk> Est ce que  10 changeait de file de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 10 changeait de file de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 10 changeait de file de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="11 doublait">
+       <ToAsk> Est ce que  11 doublait de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 11 doublait de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 11 doublait de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="12 virait droite">
+       <ToAsk> Est ce que  12 virait droite de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 12 virait droite de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 12 virait droite de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="13 virait gauche">
+       <ToAsk> Est ce que  13 virait gauche de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 13 virait gauche de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 13 virait gauche de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="14 reculait">
+       <ToAsk> Est ce que  14 reculait de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 14 reculait de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 14 reculait de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="15 empiétait voie sens inverse">
+       <ToAsk> Est ce que  15 empiétait voie sens inverse de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 15 empiétait voie sens inverse de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 15 empiétait voie sens inverse de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="16 venait droite carrefour">
+       <ToAsk> Est ce que  16 venait droite carrefour de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 16 venait droite carrefour de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 16 venait droite carrefour de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="17 pas observé signal priorité ou feu rouge">
+       <ToAsk> Est ce que  17 pas observé signal priorité ou feu rouge de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> 17 pas observé signal priorité ou feu rouge de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> 17 pas observé signal priorité ou feu rouge de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="cohérence">
+       <ToAsk> Est ce que  cohérence de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> cohérence de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> cohérence de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs faute grave">
+       <ToAsk> Est ce que  obs faute grave de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> obs faute grave de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> obs faute grave de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs véhicule arrêté">
+       <ToAsk> Est ce que  obs véhicule arrêté de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> obs véhicule arrêté de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> obs véhicule arrêté de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs stationnement arrêt régulier">
+       <ToAsk> Est ce que  obs stationnement arrêt régulier de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> obs stationnement arrêt régulier de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> obs stationnement arrêt régulier de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+     </ATTRIBUTES>
+    </INSTANCE> 
+    <INSTANCE  name="Circonstances Conducteur 2"> 
+        <Left> 311 </Left>
+        <Top> 398 </Top>
+     <ATTRIBUTES>
+      <Boolean  name="1 stationnement arrêt">
+       <ToAsk> Est ce que  1 stationnement arrêt de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 1 stationnement arrêt de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 1 stationnement arrêt de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="2 quitter stationnement ouvrir portière">
+       <ToAsk> Est ce que  2 quitter stationnement ouvrir portière de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 2 quitter stationnement ouvrir portière de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 2 quitter stationnement ouvrir portière de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="3 prenait stationnement">
+       <ToAsk> Est ce que  3 prenait stationnement de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 3 prenait stationnement de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 3 prenait stationnement de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="4 sortait parking lieu privé chemin terre">
+       <ToAsk> Est ce que  4 sortait parking lieu privé chemin terre de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 4 sortait parking lieu privé chemin terre de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 4 sortait parking lieu privé chemin terre de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="5 s'engageait parking lieu privé chemin terre">
+       <ToAsk> Est ce que  5 s'engageait parking lieu privé chemin terre de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 5 s'engageait parking lieu privé chemin terre de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 5 s'engageait parking lieu privé chemin terre de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="6 s'engageait place giratoire">
+       <ToAsk> Est ce que  6 s'engageait place giratoire de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 6 s'engageait place giratoire de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 6 s'engageait place giratoire de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="7 roulait sur place giratoire">
+       <ToAsk> Est ce que  7 roulait sur place giratoire de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 7 roulait sur place giratoire de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 7 roulait sur place giratoire de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="8 heurter arrière même sens même file">
+       <ToAsk> Est ce que  8 heurter arrière même sens même file de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 8 heurter arrière même sens même file de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 8 heurter arrière même sens même file de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="9 roulait même sens file différente">
+       <ToAsk> Est ce que  9 roulait même sens file différente de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 9 roulait même sens file différente de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 9 roulait même sens file différente de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="10 changeait de file">
+       <ToAsk> Est ce que  10 changeait de file de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 10 changeait de file de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 10 changeait de file de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="11 doublait">
+       <ToAsk> Est ce que  11 doublait de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 11 doublait de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 11 doublait de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="12 virait droite">
+       <ToAsk> Est ce que  12 virait droite de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 12 virait droite de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 12 virait droite de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="13 virait gauche">
+       <ToAsk> Est ce que  13 virait gauche de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 13 virait gauche de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 13 virait gauche de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="14 reculait">
+       <ToAsk> Est ce que  14 reculait de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 14 reculait de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 14 reculait de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="15 empiétait voie sens inverse">
+       <ToAsk> Est ce que  15 empiétait voie sens inverse de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 15 empiétait voie sens inverse de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 15 empiétait voie sens inverse de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="16 venait droite carrefour">
+       <ToAsk> Est ce que  16 venait droite carrefour de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 16 venait droite carrefour de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 16 venait droite carrefour de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="17 pas observé signal priorité ou feu rouge">
+       <ToAsk> Est ce que  17 pas observé signal priorité ou feu rouge de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> 17 pas observé signal priorité ou feu rouge de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> 17 pas observé signal priorité ou feu rouge de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="cohérence">
+       <ToAsk> Est ce que  cohérence de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> cohérence de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> cohérence de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs faute grave">
+       <ToAsk> Est ce que  obs faute grave de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> obs faute grave de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> obs faute grave de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs véhicule arrêté">
+       <ToAsk> Est ce que  obs véhicule arrêté de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> obs véhicule arrêté de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> obs véhicule arrêté de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs stationnement arrêt régulier">
+       <ToAsk> Est ce que  obs stationnement arrêt régulier de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> obs stationnement arrêt régulier de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> obs stationnement arrêt régulier de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+     </ATTRIBUTES>
+    </INSTANCE> 
+   </INSTANCES>
   </CONCEPT>
  </CONCEPTS>
+
+ <RELATIONS>
+  <RELATION  name="Établit">
+   <LeftConcept> Constat d'accident </LeftConcept>
+   <RightConcept> Conducteur </RightConcept>
+   <Cardinality> 1..n </Cardinality>
+    <ToAffirm> Établit(^G,^D) </ToAffirm>
+    <ToDeny> non Établit(^G,^D) </ToDeny>
+       <InitialEQ> C,Inconscient n.1 </InitialEQ>
+       <InitialEQ> C,Inconscient n.2 </InitialEQ>
+  </RELATION>
+ </RELATIONS>
 
  <BASES>
   <BASE  name="Base de Règles">
@@ -544,6 +1233,54 @@
     <Inhibited> no </Inhibited>
   </BASE>
   <BASE  name="Cohérence du constat">
+    <PartOf> Base de Règles </PartOf>
+    <Inhibited> no </Inhibited>
+  </BASE>
+  <BASE  name="Catégorie de l'accident">
+    <PartOf> Base de Règles </PartOf>
+    <Inhibited> no </Inhibited>
+  </BASE>
+  <BASE  name="Règles conducteur Faute Grave">
+    <PartOf> Base de Règles </PartOf>
+    <Inhibited> no </Inhibited>
+    <RULE  name="case 17">
+     <Param> $1:Conducteur </Param>
+     <If>
+      $1§17 pas observé signal priorité ou feu rouge=vrai
+     </If>
+     <Then>
+      Ajouter($1§A fait une faute grave=vrai)
+     </Then>
+    </RULE>
+    <RULE  name="obs faute grave">
+     <Param> $1:Conducteur </Param>
+     <If>
+      $1§obs faute grave=vrai
+     </If>
+     <Then>
+      Ajouter($1§A fait une faute grave=vrai)
+     </Then>
+    </RULE>
+    <RULE  name="case 4">
+     <Param> $1:Conducteur </Param>
+     <If>
+      $1§4 sortait parking lieu privé chemin terre=vrai
+     </If>
+     <Then>
+      Ajouter($1§A fait une faute grave=vrai)
+     </Then>
+    </RULE>
+    <RULE  name="case 14">
+     <Param> $1:Conducteur </Param>
+     <If>
+      $1§14 reculait=vrai
+     </If>
+     <Then>
+      Ajouter($1§A fait une faute grave=vrai)
+     </Then>
+    </RULE>
+  </BASE>
+  <BASE  name="Règles conducteur tort">
     <PartOf> Base de Règles </PartOf>
     <Inhibited> no </Inhibited>
   </BASE>
