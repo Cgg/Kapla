@@ -5,7 +5,7 @@
  <SherlockVersion> Version 06/2010 </SherlockVersion>
  <NAME> constat </NAME>
  <CREATION> 11/9/2010 11:11:23 AM </CREATION>
- <UPDATE> 12/11/2010 11:30:34 </UPDATE>
+ <UPDATE> 12/11/2010 11:45:53 </UPDATE>
 
  <CONFIGURATION>
   <TraceSystem> extended </TraceSystem>
@@ -1767,7 +1767,7 @@
   <BASE  name="par rapport à elle même">
     <PartOf> Cohérence des circonstances </PartOf>
     <Inhibited> no </Inhibited>
-    <RULE  name="Règle1 de par rapport à elle même">
+    <RULE  name="sortait parking et entrait parking">
      <Param> $1:Circonstances </Param>
      <If>
       $1§4 sortait parking lieu privé chemin terre=vrai
@@ -1777,7 +1777,7 @@
       Ajouter($1§cohérence=faux)
      </Then>
     </RULE>
-    <RULE  name="Règle2 de par rapport à elle même">
+    <RULE  name="Virait droite et virait gauche">
      <Param> $1:Circonstances </Param>
      <If>
       $1§12 virait droite=vrai
@@ -1795,4 +1795,12 @@
     <Inhibited> yes </Inhibited>
   </METABASE>
  </METABASES>
+
+ <TASKS>
+  <TASK  name="Tâche Principale">
+    <Method>
+Présenter(Ecran 1)
+    </Method>
+  </TASK>
+ </TASKS>
 </SherlockUnit>
