@@ -5,7 +5,7 @@
  <SherlockVersion> Version 06/2010 </SherlockVersion>
  <NAME> constat </NAME>
  <CREATION> 11/9/2010 11:11:23 AM </CREATION>
- <UPDATE> 11/11/2010 18:06:31 </UPDATE>
+ <UPDATE> 12/11/2010 11:08:17 </UPDATE>
 
  <CONFIGURATION>
   <TraceSystem> extended </TraceSystem>
@@ -53,6 +53,9 @@
   </BASEDEF>
   <BASEDEF  name="Règles conducteur tort">
     <PartOf> Base de Règles </PartOf>
+  </BASEDEF>
+  <BASEDEF  name="par rapport à elle même">
+    <PartOf> Cohérence des circonstances </PartOf>
   </BASEDEF>
  </BASEDEFS>
 
@@ -277,19 +280,7 @@
      <Strat> règle </Strat>
      </Strategy>
     </Boolean>
-    <Boolean  name="1 stationnement arrêt">
-     <From> •Circonstances </From>
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-    </Boolean>
     <Boolean  name="2 quitter stationnement ouvrir portière">
-     <From> •Circonstances </From>
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-    </Boolean>
-    <Boolean  name="3 prenait stationnement">
      <From> •Circonstances </From>
      <Strategy>
      <Strat> question </Strat>
@@ -399,13 +390,6 @@
      <Strat> règle </Strat>
      </Strategy>
     </Boolean>
-    <Boolean  name="obs stationnement arrêt régulier">
-     <From> •Circonstances </From>
-     <Strategy>
-     <Strat> question </Strat>
-     <Strat> règle </Strat>
-     </Strategy>
-    </Boolean>
     <String  name="observations">
      <From> •Observations </From>
      <Strategy>
@@ -427,20 +411,10 @@
        <ToDeny> A fait une faute grave de Inconscient n.1 est faux </ToDeny>
        <ToAffirm> A fait une faute grave de Inconscient n.1 est vrai </ToAffirm>
       </Boolean>
-      <Boolean  name="1 stationnement arrêt">
-       <ToAsk> Est ce que  1 stationnement arrêt de Inconscient n.1 ? </ToAsk>
-       <ToDeny> 1 stationnement arrêt de Inconscient n.1 est faux </ToDeny>
-       <ToAffirm> 1 stationnement arrêt de Inconscient n.1 est vrai </ToAffirm>
-      </Boolean>
       <Boolean  name="2 quitter stationnement ouvrir portière">
        <ToAsk> Est ce que  2 quitter stationnement ouvrir portière de Inconscient n.1 ? </ToAsk>
        <ToDeny> 2 quitter stationnement ouvrir portière de Inconscient n.1 est faux </ToDeny>
        <ToAffirm> 2 quitter stationnement ouvrir portière de Inconscient n.1 est vrai </ToAffirm>
-      </Boolean>
-      <Boolean  name="3 prenait stationnement">
-       <ToAsk> Est ce que  3 prenait stationnement de Inconscient n.1 ? </ToAsk>
-       <ToDeny> 3 prenait stationnement de Inconscient n.1 est faux </ToDeny>
-       <ToAffirm> 3 prenait stationnement de Inconscient n.1 est vrai </ToAffirm>
       </Boolean>
       <Boolean  name="4 sortait parking lieu privé chemin terre">
        <ToAsk> Est ce que  4 sortait parking lieu privé chemin terre de Inconscient n.1 ? </ToAsk>
@@ -527,11 +501,6 @@
        <ToDeny> obs véhicule arrêté de Inconscient n.1 est faux </ToDeny>
        <ToAffirm> obs véhicule arrêté de Inconscient n.1 est vrai </ToAffirm>
       </Boolean>
-      <Boolean  name="obs stationnement arrêt régulier">
-       <ToAsk> Est ce que  obs stationnement arrêt régulier de Inconscient n.1 ? </ToAsk>
-       <ToDeny> obs stationnement arrêt régulier de Inconscient n.1 est faux </ToDeny>
-       <ToAffirm> obs stationnement arrêt régulier de Inconscient n.1 est vrai </ToAffirm>
-      </Boolean>
       <String  name="observations">
        <ToAsk> Que vaut  observations de Inconscient n.1 ? </ToAsk>
        <ToAffirm> observations de Inconscient n.1 = ^ </ToAffirm>
@@ -551,20 +520,10 @@
        <ToDeny> A fait une faute grave de Inconscient n.2 est faux </ToDeny>
        <ToAffirm> A fait une faute grave de Inconscient n.2 est vrai </ToAffirm>
       </Boolean>
-      <Boolean  name="1 stationnement arrêt">
-       <ToAsk> Est ce que  1 stationnement arrêt de Inconscient n.2 ? </ToAsk>
-       <ToDeny> 1 stationnement arrêt de Inconscient n.2 est faux </ToDeny>
-       <ToAffirm> 1 stationnement arrêt de Inconscient n.2 est vrai </ToAffirm>
-      </Boolean>
       <Boolean  name="2 quitter stationnement ouvrir portière">
        <ToAsk> Est ce que  2 quitter stationnement ouvrir portière de Inconscient n.2 ? </ToAsk>
        <ToDeny> 2 quitter stationnement ouvrir portière de Inconscient n.2 est faux </ToDeny>
        <ToAffirm> 2 quitter stationnement ouvrir portière de Inconscient n.2 est vrai </ToAffirm>
-      </Boolean>
-      <Boolean  name="3 prenait stationnement">
-       <ToAsk> Est ce que  3 prenait stationnement de Inconscient n.2 ? </ToAsk>
-       <ToDeny> 3 prenait stationnement de Inconscient n.2 est faux </ToDeny>
-       <ToAffirm> 3 prenait stationnement de Inconscient n.2 est vrai </ToAffirm>
       </Boolean>
       <Boolean  name="4 sortait parking lieu privé chemin terre">
        <ToAsk> Est ce que  4 sortait parking lieu privé chemin terre de Inconscient n.2 ? </ToAsk>
@@ -650,11 +609,6 @@
        <ToAsk> Est ce que  obs véhicule arrêté de Inconscient n.2 ? </ToAsk>
        <ToDeny> obs véhicule arrêté de Inconscient n.2 est faux </ToDeny>
        <ToAffirm> obs véhicule arrêté de Inconscient n.2 est vrai </ToAffirm>
-      </Boolean>
-      <Boolean  name="obs stationnement arrêt régulier">
-       <ToAsk> Est ce que  obs stationnement arrêt régulier de Inconscient n.2 ? </ToAsk>
-       <ToDeny> obs stationnement arrêt régulier de Inconscient n.2 est faux </ToDeny>
-       <ToAffirm> obs stationnement arrêt régulier de Inconscient n.2 est vrai </ToAffirm>
       </Boolean>
       <String  name="observations">
        <ToAsk> Que vaut  observations de Inconscient n.2 ? </ToAsk>
@@ -859,23 +813,11 @@
      </Numerical>
    </PROPERTIES>
    <ATTRIBUTES>
-    <Boolean  name="1 stationnement arrêt">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 1-stationnement/arrêt? </ToAsk>
-    </Boolean>
     <Boolean  name="2 quitter stationnement ouvrir portière">
      <Strategy>
      <Strat> question </Strat>
      </Strategy>
      <ToAsk> 2 quitter stationnement ouvrir portière? </ToAsk>
-    </Boolean>
-    <Boolean  name="3 prenait stationnement">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 3 prenait stationnement? </ToAsk>
     </Boolean>
     <Boolean  name="4 sortait parking lieu privé chemin terre">
      <Strategy>
@@ -978,32 +920,16 @@
      <Strat> règle </Strat>
      </Strategy>
     </Boolean>
-    <Boolean  name="obs stationnement arrêt régulier">
-     <Strategy>
-     <Strat> question </Strat>
-     <Strat> règle </Strat>
-     </Strategy>
-    </Boolean>
    </ATTRIBUTES>
    <INSTANCES>
     <INSTANCE  name="Circonstances Conducteur 1"> 
         <Left> 306 </Left>
         <Top> 378 </Top>
      <ATTRIBUTES>
-      <Boolean  name="1 stationnement arrêt">
-       <ToAsk> Est ce que  1 stationnement arrêt de Circonstances Conducteur 1 ? </ToAsk>
-       <ToDeny> 1 stationnement arrêt de Circonstances Conducteur 1 est faux </ToDeny>
-       <ToAffirm> 1 stationnement arrêt de Circonstances Conducteur 1 est vrai </ToAffirm>
-      </Boolean>
       <Boolean  name="2 quitter stationnement ouvrir portière">
        <ToAsk> Est ce que  2 quitter stationnement ouvrir portière de Circonstances Conducteur 1 ? </ToAsk>
        <ToDeny> 2 quitter stationnement ouvrir portière de Circonstances Conducteur 1 est faux </ToDeny>
        <ToAffirm> 2 quitter stationnement ouvrir portière de Circonstances Conducteur 1 est vrai </ToAffirm>
-      </Boolean>
-      <Boolean  name="3 prenait stationnement">
-       <ToAsk> Est ce que  3 prenait stationnement de Circonstances Conducteur 1 ? </ToAsk>
-       <ToDeny> 3 prenait stationnement de Circonstances Conducteur 1 est faux </ToDeny>
-       <ToAffirm> 3 prenait stationnement de Circonstances Conducteur 1 est vrai </ToAffirm>
       </Boolean>
       <Boolean  name="4 sortait parking lieu privé chemin terre">
        <ToAsk> Est ce que  4 sortait parking lieu privé chemin terre de Circonstances Conducteur 1 ? </ToAsk>
@@ -1090,31 +1016,16 @@
        <ToDeny> obs véhicule arrêté de Circonstances Conducteur 1 est faux </ToDeny>
        <ToAffirm> obs véhicule arrêté de Circonstances Conducteur 1 est vrai </ToAffirm>
       </Boolean>
-      <Boolean  name="obs stationnement arrêt régulier">
-       <ToAsk> Est ce que  obs stationnement arrêt régulier de Circonstances Conducteur 1 ? </ToAsk>
-       <ToDeny> obs stationnement arrêt régulier de Circonstances Conducteur 1 est faux </ToDeny>
-       <ToAffirm> obs stationnement arrêt régulier de Circonstances Conducteur 1 est vrai </ToAffirm>
-      </Boolean>
      </ATTRIBUTES>
     </INSTANCE> 
     <INSTANCE  name="Circonstances Conducteur 2"> 
         <Left> 311 </Left>
         <Top> 398 </Top>
      <ATTRIBUTES>
-      <Boolean  name="1 stationnement arrêt">
-       <ToAsk> Est ce que  1 stationnement arrêt de Circonstances Conducteur 2 ? </ToAsk>
-       <ToDeny> 1 stationnement arrêt de Circonstances Conducteur 2 est faux </ToDeny>
-       <ToAffirm> 1 stationnement arrêt de Circonstances Conducteur 2 est vrai </ToAffirm>
-      </Boolean>
       <Boolean  name="2 quitter stationnement ouvrir portière">
        <ToAsk> Est ce que  2 quitter stationnement ouvrir portière de Circonstances Conducteur 2 ? </ToAsk>
        <ToDeny> 2 quitter stationnement ouvrir portière de Circonstances Conducteur 2 est faux </ToDeny>
        <ToAffirm> 2 quitter stationnement ouvrir portière de Circonstances Conducteur 2 est vrai </ToAffirm>
-      </Boolean>
-      <Boolean  name="3 prenait stationnement">
-       <ToAsk> Est ce que  3 prenait stationnement de Circonstances Conducteur 2 ? </ToAsk>
-       <ToDeny> 3 prenait stationnement de Circonstances Conducteur 2 est faux </ToDeny>
-       <ToAffirm> 3 prenait stationnement de Circonstances Conducteur 2 est vrai </ToAffirm>
       </Boolean>
       <Boolean  name="4 sortait parking lieu privé chemin terre">
        <ToAsk> Est ce que  4 sortait parking lieu privé chemin terre de Circonstances Conducteur 2 ? </ToAsk>
@@ -1201,11 +1112,6 @@
        <ToDeny> obs véhicule arrêté de Circonstances Conducteur 2 est faux </ToDeny>
        <ToAffirm> obs véhicule arrêté de Circonstances Conducteur 2 est vrai </ToAffirm>
       </Boolean>
-      <Boolean  name="obs stationnement arrêt régulier">
-       <ToAsk> Est ce que  obs stationnement arrêt régulier de Circonstances Conducteur 2 ? </ToAsk>
-       <ToDeny> obs stationnement arrêt régulier de Circonstances Conducteur 2 est faux </ToDeny>
-       <ToAffirm> obs stationnement arrêt régulier de Circonstances Conducteur 2 est vrai </ToAffirm>
-      </Boolean>
      </ATTRIBUTES>
     </INSTANCE> 
    </INSTANCES>
@@ -1223,6 +1129,208 @@
        <InitialEQ> C,Inconscient n.2 </InitialEQ>
   </RELATION>
  </RELATIONS>
+
+ <SCREENS>
+  <SCREEN  name="Ecran 1">
+   <ScreenColor> #0080FFFF </ScreenColor>
+   <ScreenWidth> 600 </ScreenWidth>
+   <ScreenHeight> 521 </ScreenHeight>
+   <Controls>
+    <Label>
+     <RefControl> 2 </RefControl>
+     <Info> 0 </Info>
+     <Top> 130 </Top>
+     <Left> 165 </Left>
+     <Width> 8 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§2 quitter stationnement ouvrir portière </RefControl>
+     <Info> 0 </Info>
+     <Top> 130 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§4 sortait parking lieu privé chemin terre </RefControl>
+     <Info> 0 </Info>
+     <Top> 145 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§5 s'engageait parking lieu privé chemin terre </RefControl>
+     <Info> 0 </Info>
+     <Top> 160 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§6 s'engageait place giratoire </RefControl>
+     <Info> 0 </Info>
+     <Top> 175 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§7 roulait sur place giratoire </RefControl>
+     <Info> 0 </Info>
+     <Top> 190 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§8 heurter arrière même sens même file </RefControl>
+     <Info> 0 </Info>
+     <Top> 205 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§9 roulait même sens file différente </RefControl>
+     <Info> 0 </Info>
+     <Top> 220 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§10 changeait de file </RefControl>
+     <Info> 0 </Info>
+     <Top> 235 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§11 doublait </RefControl>
+     <Info> 0 </Info>
+     <Top> 250 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§12 virait droite </RefControl>
+     <Info> 0 </Info>
+     <Top> 265 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§13 virait gauche </RefControl>
+     <Info> 0 </Info>
+     <Top> 280 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§14 reculait </RefControl>
+     <Info> 0 </Info>
+     <Top> 295 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§15 empiétait voie sens inverse </RefControl>
+     <Info> 0 </Info>
+     <Top> 309 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§16 venait droite carrefour </RefControl>
+     <Info> 0 </Info>
+     <Top> 324 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§17 pas observé signal priorité ou feu rouge </RefControl>
+     <Info> 0 </Info>
+     <Top> 340 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+   </Controls>
+  </SCREEN>
+ </SCREENS>
 
  <BASES>
   <BASE  name="Base de Règles">
@@ -1283,6 +1391,30 @@
   <BASE  name="Règles conducteur tort">
     <PartOf> Base de Règles </PartOf>
     <Inhibited> no </Inhibited>
+  </BASE>
+  <BASE  name="par rapport à elle même">
+    <PartOf> Cohérence des circonstances </PartOf>
+    <Inhibited> no </Inhibited>
+    <RULE  name="Règle1 de par rapport à elle même">
+     <Param> $1:Circonstances </Param>
+     <If>
+      $1§4 sortait parking lieu privé chemin terre=vrai
+      $1§5 s'engageait parking lieu privé chemin terre=vrai
+     </If>
+     <Then>
+      Ajouter($1§cohérence=faux)
+     </Then>
+    </RULE>
+    <RULE  name="Règle2 de par rapport à elle même">
+     <Param> $1:Circonstances </Param>
+     <If>
+      $1§12 virait droite=vrai
+      $1§13 virait gauche=vrai
+     </If>
+     <Then>
+      Ajouter($1§cohérence=faux)
+     </Then>
+    </RULE>
   </BASE>
  </BASES>
 
