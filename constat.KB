@@ -5,7 +5,7 @@
  <SherlockVersion> Version 06/2010 </SherlockVersion>
  <NAME> constat </NAME>
  <CREATION> 11/9/2010 11:11:23 AM </CREATION>
- <UPDATE> 12/11/2010 11:08:17 </UPDATE>
+ <UPDATE> 12/11/2010 11:30:34 </UPDATE>
 
  <CONFIGURATION>
   <TraceSystem> extended </TraceSystem>
@@ -1148,6 +1148,198 @@
      <Color> #00000000 </Color>
      <Style> G </Style>
     </Label>
+    <Label>
+     <RefControl> 4 </RefControl>
+     <Info> 0 </Info>
+     <Top> 145 </Top>
+     <Left> 165 </Left>
+     <Width> 8 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> 5 </RefControl>
+     <Info> 0 </Info>
+     <Top> 160 </Top>
+     <Left> 165 </Left>
+     <Width> 8 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> 6 </RefControl>
+     <Info> 0 </Info>
+     <Top> 175 </Top>
+     <Left> 165 </Left>
+     <Width> 8 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> 7 </RefControl>
+     <Info> 0 </Info>
+     <Top> 190 </Top>
+     <Left> 165 </Left>
+     <Width> 8 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> 8 </RefControl>
+     <Info> 0 </Info>
+     <Top> 205 </Top>
+     <Left> 165 </Left>
+     <Width> 8 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> 9 </RefControl>
+     <Info> 0 </Info>
+     <Top> 220 </Top>
+     <Left> 165 </Left>
+     <Width> 8 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> 10 </RefControl>
+     <Info> 0 </Info>
+     <Top> 235 </Top>
+     <Left> 165 </Left>
+     <Width> 15 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> 11 </RefControl>
+     <Info> 0 </Info>
+     <Top> 250 </Top>
+     <Left> 165 </Left>
+     <Width> 15 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> 12 </RefControl>
+     <Info> 0 </Info>
+     <Top> 265 </Top>
+     <Left> 165 </Left>
+     <Width> 15 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> 13 </RefControl>
+     <Info> 0 </Info>
+     <Top> 280 </Top>
+     <Left> 165 </Left>
+     <Width> 15 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> 14 </RefControl>
+     <Info> 0 </Info>
+     <Top> 295 </Top>
+     <Left> 165 </Left>
+     <Width> 15 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> 15 </RefControl>
+     <Info> 0 </Info>
+     <Top> 310 </Top>
+     <Left> 165 </Left>
+     <Width> 15 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> 16 </RefControl>
+     <Info> 0 </Info>
+     <Top> 325 </Top>
+     <Left> 165 </Left>
+     <Width> 15 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> 17 </RefControl>
+     <Info> 0 </Info>
+     <Top> 340 </Top>
+     <Left> 165 </Left>
+     <Width> 15 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> Conducteur n°1 </RefControl>
+     <Info> 0 </Info>
+     <Top> 130 </Top>
+     <Left> 45 </Left>
+     <Width> 89 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> Conducteur n°2 </RefControl>
+     <Info> 0 </Info>
+     <Top> 130 </Top>
+     <Left> 210 </Left>
+     <Width> 89 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
     <Checkbox>
      <RefControl> Circonstances Conducteur 1§2 quitter stationnement ouvrir portière </RefControl>
      <Info> 0 </Info>
@@ -1321,6 +1513,186 @@
      <Info> 0 </Info>
      <Top> 340 </Top>
      <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§2 quitter stationnement ouvrir portière </RefControl>
+     <Info> 0 </Info>
+     <Top> 130 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§4 sortait parking lieu privé chemin terre </RefControl>
+     <Info> 0 </Info>
+     <Top> 145 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§5 s'engageait parking lieu privé chemin terre </RefControl>
+     <Info> 0 </Info>
+     <Top> 160 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§6 s'engageait place giratoire </RefControl>
+     <Info> 0 </Info>
+     <Top> 175 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§7 roulait sur place giratoire </RefControl>
+     <Info> 0 </Info>
+     <Top> 190 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§8 heurter arrière même sens même file </RefControl>
+     <Info> 0 </Info>
+     <Top> 205 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§9 roulait même sens file différente </RefControl>
+     <Info> 0 </Info>
+     <Top> 220 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§10 changeait de file </RefControl>
+     <Info> 0 </Info>
+     <Top> 235 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§11 doublait </RefControl>
+     <Info> 0 </Info>
+     <Top> 250 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§12 virait droite </RefControl>
+     <Info> 0 </Info>
+     <Top> 265 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§13 virait gauche </RefControl>
+     <Info> 0 </Info>
+     <Top> 280 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§14 reculait </RefControl>
+     <Info> 0 </Info>
+     <Top> 295 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§15 empiétait voie sens inverse </RefControl>
+     <Info> 0 </Info>
+     <Top> 309 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§16 venait droite carrefour </RefControl>
+     <Info> 0 </Info>
+     <Top> 324 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§17 pas observé signal priorité ou feu rouge </RefControl>
+     <Info> 0 </Info>
+     <Top> 340 </Top>
+     <Left> 180 </Left>
      <Width> 15 </Width>
      <Height> 17 </Height>
      <Police> MS Sans Serif </Police>
