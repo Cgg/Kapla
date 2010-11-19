@@ -5,7 +5,7 @@
  <SherlockVersion> Version 06/2010 </SherlockVersion>
  <NAME> constat </NAME>
  <CREATION> 11/9/2010 11:11:23 AM </CREATION>
- <UPDATE> 12/11/2010 11:45:53 </UPDATE>
+ <UPDATE> 19/11/2010 11:47:55 </UPDATE>
 
  <CONFIGURATION>
   <TraceSystem> extended </TraceSystem>
@@ -56,6 +56,21 @@
   </BASEDEF>
   <BASEDEF  name="par rapport à elle même">
     <PartOf> Cohérence des circonstances </PartOf>
+  </BASEDEF>
+  <BASEDEF  name="par rapport aux circonstances de l'autre conducteur">
+    <PartOf> Cohérence des circonstances </PartOf>
+  </BASEDEF>
+  <BASEDEF  name="fautes graves">
+    <PartOf> Règles conducteur tort </PartOf>
+  </BASEDEF>
+  <BASEDEF  name="Chaussées différentes">
+    <PartOf> Règles conducteur tort </PartOf>
+  </BASEDEF>
+  <BASEDEF  name="même chaussée">
+    <PartOf> Règles conducteur tort </PartOf>
+  </BASEDEF>
+  <BASEDEF  name="portieres">
+    <PartOf> Règles conducteur tort </PartOf>
   </BASEDEF>
  </BASEDEFS>
 
@@ -271,10 +286,6 @@
      </Numerical>
    </PROPERTIES>
    <ATTRIBUTES>
-    <Numerical  name="tort">
-     <Min> 0 </Min>
-     <Max> 100 </Max>
-    </Numerical>
     <Boolean  name="A fait une faute grave">
      <Strategy>
      <Strat> règle </Strat>
@@ -370,12 +381,6 @@
      <Strat> question </Strat>
      </Strategy>
     </Boolean>
-    <Boolean  name="cohérence">
-     <From> •Circonstances </From>
-     <Strategy>
-     <Strat> règle </Strat>
-     </Strategy>
-    </Boolean>
     <Boolean  name="obs faute grave">
      <From> •Circonstances </From>
      <Strategy>
@@ -396,16 +401,62 @@
      <Strat> question </Strat>
      </Strategy>
     </String>
+    <Monovalued  name="tort">
+     <Values>
+      <Val> 
+        <Value> 0 </Value>
+        <Left> 0 </Left>
+        <Top> 0 </Top>
+      </Val> 
+      <Val> 
+        <Value> 25 </Value>
+        <Left> 0 </Left>
+        <Top> 0 </Top>
+      </Val> 
+      <Val> 
+        <Value> 50 </Value>
+        <Left> 0 </Left>
+        <Top> 0 </Top>
+      </Val> 
+      <Val> 
+        <Value> 75 </Value>
+        <Left> 0 </Left>
+        <Top> 0 </Top>
+      </Val> 
+      <Val> 
+        <Value> 100 </Value>
+        <Left> 0 </Left>
+        <Top> 0 </Top>
+      </Val> 
+     </Values>
+     <Strategy>
+     <Strat> règle </Strat>
+     </Strategy>
+    </Monovalued>
+    <Boolean  name="obs franchissement pointillés">
+     <From> •Circonstances </From>
+     <Strategy>
+     <Strat> question </Strat>
+     </Strategy>
+    </Boolean>
+    <Boolean  name="obs franchissement ligne blanche">
+     <From> •Circonstances </From>
+    </Boolean>
+    <Boolean  name="cohérence">
+     <From> •Circonstances </From>
+       <DefaultEQ> vrai </DefaultEQ>
+       <DefaultNEQ> faux </DefaultNEQ>
+     <Strategy>
+     <Strat> règle </Strat>
+     <Strat> défaut </Strat>
+     </Strategy>
+    </Boolean>
    </ATTRIBUTES>
    <INSTANCES>
     <INSTANCE  name="Inconscient n.1"> 
         <Left> 281 </Left>
         <Top> 278 </Top>
      <ATTRIBUTES>
-      <Numerical  name="tort">
-       <ToAsk> Que vaut  tort de Inconscient n.1 ? </ToAsk>
-       <ToAffirm> tort de Inconscient n.1 = ^ </ToAffirm>
-      </Numerical>
       <Boolean  name="A fait une faute grave">
        <ToAsk> Est ce que  A fait une faute grave de Inconscient n.1 ? </ToAsk>
        <ToDeny> A fait une faute grave de Inconscient n.1 est faux </ToDeny>
@@ -486,11 +537,6 @@
        <ToDeny> 17 pas observé signal priorité ou feu rouge de Inconscient n.1 est faux </ToDeny>
        <ToAffirm> 17 pas observé signal priorité ou feu rouge de Inconscient n.1 est vrai </ToAffirm>
       </Boolean>
-      <Boolean  name="cohérence">
-       <ToAsk> Est ce que  cohérence de Inconscient n.1 ? </ToAsk>
-       <ToDeny> cohérence de Inconscient n.1 est faux </ToDeny>
-       <ToAffirm> cohérence de Inconscient n.1 est vrai </ToAffirm>
-      </Boolean>
       <Boolean  name="obs faute grave">
        <ToAsk> Est ce que  obs faute grave de Inconscient n.1 ? </ToAsk>
        <ToDeny> obs faute grave de Inconscient n.1 est faux </ToDeny>
@@ -505,16 +551,34 @@
        <ToAsk> Que vaut  observations de Inconscient n.1 ? </ToAsk>
        <ToAffirm> observations de Inconscient n.1 = ^ </ToAffirm>
       </String>
+      <Monovalued  name="tort">
+       <ToAsk> Que vaut  tort de Inconscient n.1 ? </ToAsk>
+       <ToDeny> tort de Inconscient n.1 # ^ </ToDeny>
+       <ToAffirm> tort de Inconscient n.1 = ^ </ToAffirm>
+      </Monovalued>
+      <Boolean  name="obs franchissement pointillés">
+       <ToAsk> Est ce que  obs franchissement pointillés de Inconscient n.1 ? </ToAsk>
+       <ToDeny> obs franchissement pointillés de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> obs franchissement pointillés de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs franchissement ligne blanche">
+       <ToAsk> Est ce que  obs franchissement ligne blanche de Inconscient n.1 ? </ToAsk>
+       <ToDeny> obs franchissement ligne blanche de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> obs franchissement ligne blanche de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="cohérence">
+       <DefaultEQ> vrai </DefaultEQ>
+       <DefaultNEQ> faux </DefaultNEQ>
+       <ToAsk> Est ce que  cohérence de Inconscient n.1 ? </ToAsk>
+       <ToDeny> cohérence de Inconscient n.1 est faux </ToDeny>
+       <ToAffirm> cohérence de Inconscient n.1 est vrai </ToAffirm>
+      </Boolean>
      </ATTRIBUTES>
     </INSTANCE> 
     <INSTANCE  name="Inconscient n.2"> 
         <Left> 286 </Left>
         <Top> 298 </Top>
      <ATTRIBUTES>
-      <Numerical  name="tort">
-       <ToAsk> Que vaut  tort de Inconscient n.2 ? </ToAsk>
-       <ToAffirm> tort de Inconscient n.2 = ^ </ToAffirm>
-      </Numerical>
       <Boolean  name="A fait une faute grave">
        <ToAsk> Est ce que  A fait une faute grave de Inconscient n.2 ? </ToAsk>
        <ToDeny> A fait une faute grave de Inconscient n.2 est faux </ToDeny>
@@ -595,11 +659,6 @@
        <ToDeny> 17 pas observé signal priorité ou feu rouge de Inconscient n.2 est faux </ToDeny>
        <ToAffirm> 17 pas observé signal priorité ou feu rouge de Inconscient n.2 est vrai </ToAffirm>
       </Boolean>
-      <Boolean  name="cohérence">
-       <ToAsk> Est ce que  cohérence de Inconscient n.2 ? </ToAsk>
-       <ToDeny> cohérence de Inconscient n.2 est faux </ToDeny>
-       <ToAffirm> cohérence de Inconscient n.2 est vrai </ToAffirm>
-      </Boolean>
       <Boolean  name="obs faute grave">
        <ToAsk> Est ce que  obs faute grave de Inconscient n.2 ? </ToAsk>
        <ToDeny> obs faute grave de Inconscient n.2 est faux </ToDeny>
@@ -614,6 +673,28 @@
        <ToAsk> Que vaut  observations de Inconscient n.2 ? </ToAsk>
        <ToAffirm> observations de Inconscient n.2 = ^ </ToAffirm>
       </String>
+      <Monovalued  name="tort">
+       <ToAsk> Que vaut  tort de Inconscient n.2 ? </ToAsk>
+       <ToDeny> tort de Inconscient n.2 # ^ </ToDeny>
+       <ToAffirm> tort de Inconscient n.2 = ^ </ToAffirm>
+      </Monovalued>
+      <Boolean  name="obs franchissement pointillés">
+       <ToAsk> Est ce que  obs franchissement pointillés de Inconscient n.2 ? </ToAsk>
+       <ToDeny> obs franchissement pointillés de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> obs franchissement pointillés de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs franchissement ligne blanche">
+       <ToAsk> Est ce que  obs franchissement ligne blanche de Inconscient n.2 ? </ToAsk>
+       <ToDeny> obs franchissement ligne blanche de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> obs franchissement ligne blanche de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="cohérence">
+       <DefaultEQ> vrai </DefaultEQ>
+       <DefaultNEQ> faux </DefaultNEQ>
+       <ToAsk> Est ce que  cohérence de Inconscient n.2 ? </ToAsk>
+       <ToDeny> cohérence de Inconscient n.2 est faux </ToDeny>
+       <ToAffirm> cohérence de Inconscient n.2 est vrai </ToAffirm>
+      </Boolean>
      </ATTRIBUTES>
     </INSTANCE> 
    </INSTANCES>
@@ -646,6 +727,7 @@
        <DefaultNEQ> faux </DefaultNEQ>
      <Strategy>
      <Strat> règle </Strat>
+     <Strat> défaut </Strat>
      </Strategy>
     </Boolean>
     <String  name="lieu">
@@ -705,13 +787,6 @@
         <Left> 291 </Left>
         <Top> 318 </Top>
      <ATTRIBUTES>
-      <Boolean  name="cohérence">
-       <DefaultEQ> vrai </DefaultEQ>
-       <DefaultNEQ> faux </DefaultNEQ>
-       <ToAsk> Est ce que  cohérence de C ? </ToAsk>
-       <ToDeny> cohérence de C est faux </ToDeny>
-       <ToAffirm> cohérence de C est vrai </ToAffirm>
-      </Boolean>
       <String  name="lieu">
        <ToAsk> Que vaut  lieu de C ? </ToAsk>
        <ToAffirm> lieu de C = ^ </ToAffirm>
@@ -734,6 +809,13 @@
        <ToDeny> catégorie accident de C # ^ </ToDeny>
        <ToAffirm> catégorie accident de C = ^ </ToAffirm>
       </Monovalued>
+      <Boolean  name="cohérence">
+       <DefaultEQ> vrai </DefaultEQ>
+       <DefaultNEQ> faux </DefaultNEQ>
+       <ToAsk> Est ce que  cohérence de C ? </ToAsk>
+       <ToDeny> cohérence de C est faux </ToDeny>
+       <ToAffirm> cohérence de C est vrai </ToAffirm>
+      </Boolean>
      </ATTRIBUTES>
     </INSTANCE> 
    </INSTANCES>
@@ -814,111 +896,50 @@
    </PROPERTIES>
    <ATTRIBUTES>
     <Boolean  name="2 quitter stationnement ouvrir portière">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 2 quitter stationnement ouvrir portière? </ToAsk>
     </Boolean>
     <Boolean  name="4 sortait parking lieu privé chemin terre">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 4 sortait parking lieu privé chemin terre? </ToAsk>
     </Boolean>
     <Boolean  name="5 s'engageait parking lieu privé chemin terre">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 5 s'engageait parking lieu privé chemin terre </ToAsk>
     </Boolean>
     <Boolean  name="6 s'engageait place giratoire">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 6 s'engageait place giratoire? </ToAsk>
     </Boolean>
     <Boolean  name="7 roulait sur place giratoire">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 7 roulait sur place giratoire? </ToAsk>
     </Boolean>
     <Boolean  name="8 heurter arrière même sens même file">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 8 heurter arrière même sens même file? </ToAsk>
     </Boolean>
     <Boolean  name="9 roulait même sens file différente">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 9 roulait même sens file différente? </ToAsk>
     </Boolean>
     <Boolean  name="10 changeait de file">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 10 changeait de file? </ToAsk>
     </Boolean>
     <Boolean  name="11 doublait">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 11 doublait? </ToAsk>
     </Boolean>
     <Boolean  name="12 virait droite">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 12 virait droite? </ToAsk>
     </Boolean>
     <Boolean  name="13 virait gauche">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 13 virait gauche? </ToAsk>
     </Boolean>
     <Boolean  name="14 reculait">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 14 reculait? </ToAsk>
     </Boolean>
     <Boolean  name="15 empiétait voie sens inverse">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 15 empiétait voie sens inverse? </ToAsk>
     </Boolean>
     <Boolean  name="16 venait droite carrefour">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 16 venait droite carrefour? </ToAsk>
     </Boolean>
     <Boolean  name="17 pas observé signal priorité ou feu rouge">
-     <Strategy>
-     <Strat> question </Strat>
-     </Strategy>
-     <ToAsk> 17 pas observé signal priorité ou feu rouge? </ToAsk>
     </Boolean>
     <Boolean  name="cohérence">
+       <DefaultEQ> vrai </DefaultEQ>
+       <DefaultNEQ> faux </DefaultNEQ>
      <Strategy>
      <Strat> règle </Strat>
+     <Strat> défaut </Strat>
      </Strategy>
     </Boolean>
     <Boolean  name="obs faute grave">
-     <Strategy>
-     <Strat> question </Strat>
-     <Strat> règle </Strat>
-     </Strategy>
     </Boolean>
     <Boolean  name="obs véhicule arrêté">
-     <Strategy>
-     <Strat> question </Strat>
-     <Strat> règle </Strat>
-     </Strategy>
+    </Boolean>
+    <Boolean  name="obs franchissement pointillés">
+    </Boolean>
+    <Boolean  name="obs franchissement ligne blanche">
     </Boolean>
    </ATTRIBUTES>
    <INSTANCES>
@@ -1001,11 +1022,6 @@
        <ToDeny> 17 pas observé signal priorité ou feu rouge de Circonstances Conducteur 1 est faux </ToDeny>
        <ToAffirm> 17 pas observé signal priorité ou feu rouge de Circonstances Conducteur 1 est vrai </ToAffirm>
       </Boolean>
-      <Boolean  name="cohérence">
-       <ToAsk> Est ce que  cohérence de Circonstances Conducteur 1 ? </ToAsk>
-       <ToDeny> cohérence de Circonstances Conducteur 1 est faux </ToDeny>
-       <ToAffirm> cohérence de Circonstances Conducteur 1 est vrai </ToAffirm>
-      </Boolean>
       <Boolean  name="obs faute grave">
        <ToAsk> Est ce que  obs faute grave de Circonstances Conducteur 1 ? </ToAsk>
        <ToDeny> obs faute grave de Circonstances Conducteur 1 est faux </ToDeny>
@@ -1015,6 +1031,23 @@
        <ToAsk> Est ce que  obs véhicule arrêté de Circonstances Conducteur 1 ? </ToAsk>
        <ToDeny> obs véhicule arrêté de Circonstances Conducteur 1 est faux </ToDeny>
        <ToAffirm> obs véhicule arrêté de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs franchissement pointillés">
+       <ToAsk> Est ce que  obs franchissement pointillés de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> obs franchissement pointillés de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> obs franchissement pointillés de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs franchissement ligne blanche">
+       <ToAsk> Est ce que  obs franchissement ligne blanche de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> obs franchissement ligne blanche de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> obs franchissement ligne blanche de Circonstances Conducteur 1 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="cohérence">
+       <DefaultEQ> vrai </DefaultEQ>
+       <DefaultNEQ> faux </DefaultNEQ>
+       <ToAsk> Est ce que  cohérence de Circonstances Conducteur 1 ? </ToAsk>
+       <ToDeny> cohérence de Circonstances Conducteur 1 est faux </ToDeny>
+       <ToAffirm> cohérence de Circonstances Conducteur 1 est vrai </ToAffirm>
       </Boolean>
      </ATTRIBUTES>
     </INSTANCE> 
@@ -1097,11 +1130,6 @@
        <ToDeny> 17 pas observé signal priorité ou feu rouge de Circonstances Conducteur 2 est faux </ToDeny>
        <ToAffirm> 17 pas observé signal priorité ou feu rouge de Circonstances Conducteur 2 est vrai </ToAffirm>
       </Boolean>
-      <Boolean  name="cohérence">
-       <ToAsk> Est ce que  cohérence de Circonstances Conducteur 2 ? </ToAsk>
-       <ToDeny> cohérence de Circonstances Conducteur 2 est faux </ToDeny>
-       <ToAffirm> cohérence de Circonstances Conducteur 2 est vrai </ToAffirm>
-      </Boolean>
       <Boolean  name="obs faute grave">
        <ToAsk> Est ce que  obs faute grave de Circonstances Conducteur 2 ? </ToAsk>
        <ToDeny> obs faute grave de Circonstances Conducteur 2 est faux </ToDeny>
@@ -1111,6 +1139,23 @@
        <ToAsk> Est ce que  obs véhicule arrêté de Circonstances Conducteur 2 ? </ToAsk>
        <ToDeny> obs véhicule arrêté de Circonstances Conducteur 2 est faux </ToDeny>
        <ToAffirm> obs véhicule arrêté de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs franchissement pointillés">
+       <ToAsk> Est ce que  obs franchissement pointillés de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> obs franchissement pointillés de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> obs franchissement pointillés de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="obs franchissement ligne blanche">
+       <ToAsk> Est ce que  obs franchissement ligne blanche de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> obs franchissement ligne blanche de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> obs franchissement ligne blanche de Circonstances Conducteur 2 est vrai </ToAffirm>
+      </Boolean>
+      <Boolean  name="cohérence">
+       <DefaultEQ> vrai </DefaultEQ>
+       <DefaultNEQ> faux </DefaultNEQ>
+       <ToAsk> Est ce que  cohérence de Circonstances Conducteur 2 ? </ToAsk>
+       <ToDeny> cohérence de Circonstances Conducteur 2 est faux </ToDeny>
+       <ToAffirm> cohérence de Circonstances Conducteur 2 est vrai </ToAffirm>
       </Boolean>
      </ATTRIBUTES>
     </INSTANCE> 
@@ -1334,6 +1379,54 @@
      <Top> 130 </Top>
      <Left> 210 </Left>
      <Width> 89 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> obs faute grave (demi tour, et voulaà) </RefControl>
+     <Info> 0 </Info>
+     <Top> 355 </Top>
+     <Left> 210 </Left>
+     <Width> 215 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> obs véhicule arrêté </RefControl>
+     <Info> 0 </Info>
+     <Top> 370 </Top>
+     <Left> 210 </Left>
+     <Width> 110 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> obs franchissement ligne pointillée </RefControl>
+     <Info> 0 </Info>
+     <Top> 385 </Top>
+     <Left> 210 </Left>
+     <Width> 196 </Width>
+     <Height> 13 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Label>
+    <Label>
+     <RefControl> obs franchissement ligne blanche </RefControl>
+     <Info> 0 </Info>
+     <Top> 400 </Top>
+     <Left> 210 </Left>
+     <Width> 190 </Width>
      <Height> 13 </Height>
      <Police> MS Sans Serif </Police>
      <Size> 8 </Size>
@@ -1700,6 +1793,102 @@
      <Color> #00000000 </Color>
      <Style> G </Style>
     </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§obs faute grave </RefControl>
+     <Info> 0 </Info>
+     <Top> 355 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§obs véhicule arrêté </RefControl>
+     <Info> 0 </Info>
+     <Top> 370 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§obs franchissement pointillés </RefControl>
+     <Info> 0 </Info>
+     <Top> 385 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 1§obs franchissement ligne blanche </RefControl>
+     <Info> 0 </Info>
+     <Top> 400 </Top>
+     <Left> 150 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§obs faute grave </RefControl>
+     <Info> 0 </Info>
+     <Top> 355 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§obs véhicule arrêté </RefControl>
+     <Info> 0 </Info>
+     <Top> 370 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§obs franchissement pointillés </RefControl>
+     <Info> 0 </Info>
+     <Top> 385 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
+    <Checkbox>
+     <RefControl> Circonstances Conducteur 2§obs franchissement ligne blanche </RefControl>
+     <Info> 0 </Info>
+     <Top> 400 </Top>
+     <Left> 180 </Left>
+     <Width> 15 </Width>
+     <Height> 17 </Height>
+     <Police> MS Sans Serif </Police>
+     <Size> 8 </Size>
+     <Color> #00000000 </Color>
+     <Style> G </Style>
+    </Checkbox>
    </Controls>
   </SCREEN>
  </SCREENS>
@@ -1710,19 +1899,28 @@
   </BASE>
   <BASE  name="Cohérence des circonstances">
     <PartOf> Base de Règles </PartOf>
-    <Inhibited> no </Inhibited>
+    <Inhibited> yes </Inhibited>
   </BASE>
   <BASE  name="Cohérence du constat">
     <PartOf> Base de Règles </PartOf>
-    <Inhibited> no </Inhibited>
+    <Inhibited> yes </Inhibited>
+    <RULE  name="cohérence des circonstances">
+     <Param> $1:Conducteur </Param>
+     <If>
+      $1§cohérence=faux
+     </If>
+     <Then>
+      Ajouter(C§cohérence=faux)
+     </Then>
+    </RULE>
   </BASE>
   <BASE  name="Catégorie de l'accident">
     <PartOf> Base de Règles </PartOf>
-    <Inhibited> no </Inhibited>
+    <Inhibited> yes </Inhibited>
   </BASE>
   <BASE  name="Règles conducteur Faute Grave">
     <PartOf> Base de Règles </PartOf>
-    <Inhibited> no </Inhibited>
+    <Inhibited> yes </Inhibited>
     <RULE  name="case 17">
      <Param> $1:Conducteur </Param>
      <If>
@@ -1762,7 +1960,7 @@
   </BASE>
   <BASE  name="Règles conducteur tort">
     <PartOf> Base de Règles </PartOf>
-    <Inhibited> no </Inhibited>
+    <Inhibited> yes </Inhibited>
   </BASE>
   <BASE  name="par rapport à elle même">
     <PartOf> Cohérence des circonstances </PartOf>
@@ -1787,6 +1985,231 @@
       Ajouter($1§cohérence=faux)
      </Then>
     </RULE>
+    <RULE  name="giratoire">
+     <Param> $1:Conducteur </Param>
+     <If>
+      $1§6 s'engageait place giratoire=vrai
+      $1§7 roulait sur place giratoire=vrai
+     </If>
+     <Then>
+      Ajouter($1§cohérence=faux)
+     </Then>
+    </RULE>
+  </BASE>
+  <BASE  name="par rapport aux circonstances de l'autre conducteur">
+    <PartOf> Cohérence des circonstances </PartOf>
+    <Inhibited> no </Inhibited>
+  </BASE>
+  <BASE  name="fautes graves">
+    <PartOf> Règles conducteur tort </PartOf>
+    <Inhibited> yes </Inhibited>
+    <RULE  name="Un conducteur faute grave">
+     <Param> $1:Conducteur </Param>
+     <Param> $2:Conducteur </Param>
+     <If>
+      $1§A fait une faute grave=vrai
+      $2§A fait une faute grave=faux
+      $1#$2
+     </If>
+     <Then>
+      Ajouter($1§tort=100)
+      Ajouter($2§tort=0)
+     </Then>
+    </RULE>
+    <RULE  name="Deux conducteurs faute grave">
+     <Param> $1:Conducteur </Param>
+     <Param> $2:Conducteur </Param>
+     <If>
+      $1§A fait une faute grave=vrai
+      $2§A fait une faute grave=vrai
+      $1#$2
+     </If>
+     <Then>
+      Ajouter($1§tort=50)
+      Ajouter($2§tort=50)
+     </Then>
+    </RULE>
+  </BASE>
+  <BASE  name="Chaussées différentes">
+    <PartOf> Règles conducteur tort </PartOf>
+    <Inhibited> no </Inhibited>
+    <RULE  name="s'engageait place giratoire">
+     <Param> $1:Conducteur </Param>
+     <Param> $2:Conducteur </Param>
+     <If>
+      $1§6 s'engageait place giratoire=vrai
+      $2§6 s'engageait place giratoire=faux
+      $1#$2
+     </If>
+     <Then>
+      Ajouter($1§tort=100)
+      Ajouter($2§tort=0)
+     </Then>
+    </RULE>
+    <RULE  name="priorité à droite à la con">
+     <Param> $1:Conducteur </Param>
+     <Param> $2:Conducteur </Param>
+     <If>
+      $1§16 venait droite carrefour=vrai
+      $1§17 pas observé signal priorité ou feu rouge=faux
+      $2§16 venait droite carrefour=faux
+      $1#$2
+     </If>
+     <Then>
+      Ajouter($1§tort=0)
+      Ajouter($2§tort=100)
+     </Then>
+    </RULE>
+    <RULE  name="empiètement axe médian">
+     <Param> $1:Conducteur </Param>
+     <Param> $2:Conducteur </Param>
+     <If>
+      $1§17 pas observé signal priorité ou feu rouge=faux
+      $1§16 venait droite carrefour=vrai
+      $1§15 empiétait voie sens inverse=vrai
+      $1§obs franchissement pointillés=vrai
+      $1#$2
+     </If>
+     <Then>
+      Ajouter($1§tort=25)
+      Ajouter($2§tort=75)
+     </Then>
+    </RULE>
+    <RULE  name="empiètement ligne blanche">
+     <Param> $1:Conducteur </Param>
+     <Param> $2:Conducteur </Param>
+     <If>
+      $1§17 pas observé signal priorité ou feu rouge=faux
+      $1§15 empiétait voie sens inverse=vrai
+      $1§16 venait droite carrefour=vrai
+      $1§obs franchissement ligne blanche=vrai
+      $1#$2
+     </If>
+     <Then>
+      Ajouter($1§tort=50)
+      Ajouter($2§tort=50)
+     </Then>
+    </RULE>
+  </BASE>
+  <BASE  name="même chaussée">
+    <PartOf> Règles conducteur tort </PartOf>
+    <Inhibited> no </Inhibited>
+    <RULE  name="même sens même file">
+     <Param> $1:Conducteur </Param>
+     <Param> $2:Conducteur </Param>
+     <If>
+      $1§8 heurter arrière même sens même file=vrai
+      $2§10 changeait de file=faux
+      $1#$2
+     </If>
+     <Then>
+      Ajouter($1§tort=100)
+      Ajouter($2§tort=0)
+     </Then>
+    </RULE>
+    <RULE  name="même sens file différente accrochage parallèle en mvmt">
+     <Param> $1:Conducteur </Param>
+     <Param> $2:Conducteur </Param>
+     <If>
+      $1§9 roulait même sens file différente=vrai
+      $2§10 changeait de file=faux
+      $1§10 changeait de file=faux
+      $1#$2
+     </If>
+     <Then>
+      Ajouter($1§tort=50)
+      Ajouter($2§tort=50)
+     </Then>
+    </RULE>
+    <RULE  name="même sens file différente deux chgmt de file">
+     <Param> $1:Conducteur </Param>
+     <Param> $2:Conducteur </Param>
+     <If>
+      $1§9 roulait même sens file différente=vrai
+      $1§10 changeait de file=vrai
+      $2§10 changeait de file=vrai
+      $1#$2
+     </If>
+     <Then>
+      Ajouter($1§tort=50)
+      Ajouter($2§tort=50)
+     </Then>
+    </RULE>
+    <RULE  name="même sense même file accrochage parallèle un arrêté">
+     <Param> $1:Conducteur </Param>
+     <Param> $2:Conducteur </Param>
+     <If>
+      $1§9 roulait même sens file différente=vrai
+      $1§10 changeait de file=faux
+      $2§10 changeait de file=faux
+      $2§obs véhicule arrêté=vrai
+      $1#$2
+     </If>
+     <Then>
+      Ajouter($1§tort=100)
+      Ajouter($2§tort=0)
+     </Then>
+    </RULE>
+    <RULE  name="même sens même file un chgmt">
+     <Param> $1:Conducteur </Param>
+     <Param> $2:Conducteur </Param>
+     <If>
+      $1§9 roulait même sens file différente=vrai
+      $1§10 changeait de file=vrai
+      $2§10 changeait de file=faux
+      $2§obs véhicule arrêté=faux
+      $1#$2
+     </If>
+     <Then>
+      Ajouter($1§tort=100)
+      Ajouter($2§tort=0)
+     </Then>
+    </RULE>
+    <RULE  name="Règle1 de même chaussée">
+     <Param> $1:Conducteur </Param>
+     <Param> $2:Conducteur </Param>
+     <If>
+      $1§9 roulait même sens file différente=vrai
+      $1§10 changeait de file=faux
+      $2§10 changeait de file=vrai
+      $2§obs véhicule arrêté=faux
+      $1#$2
+     </If>
+     <Then>
+      Ajouter($1§tort=0)
+      Ajouter($2§tort=100)
+     </Then>
+    </RULE>
+  </BASE>
+  <BASE  name="portieres">
+    <PartOf> Règles conducteur tort </PartOf>
+    <Inhibited> no </Inhibited>
+    <RULE  name="un seul portiere">
+     <Param> $1:Conducteur </Param>
+     <Param> $2:Conducteur </Param>
+     <If>
+      $1§2 quitter stationnement ouvrir portière=vrai
+      $2§2 quitter stationnement ouvrir portière=faux
+      $1#$2
+     </If>
+     <Then>
+      Ajouter($1§tort=100)
+      Ajouter($2§tort=0)
+     </Then>
+    </RULE>
+    <RULE  name="deux portiere">
+     <Param> $1:Conducteur </Param>
+     <Param> $2:Conducteur </Param>
+     <If>
+      $1§2 quitter stationnement ouvrir portière=vrai
+      $2§2 quitter stationnement ouvrir portière=vrai
+      $1#$2
+     </If>
+     <Then>
+      Ajouter($1§tort=50)
+      Ajouter($2§tort=50)
+     </Then>
+    </RULE>
   </BASE>
  </BASES>
 
@@ -1799,7 +2222,14 @@
  <TASKS>
   <TASK  name="Tâche Principale">
     <Method>
-Présenter(Ecran 1)
+(Présenter(Ecran 1) ,
+ Libérer(Cohérence des circonstances) ,
+ Trouver(Inconscient n.1§cohérence) ,
+ Trouver(Inconscient n.2§cohérence) ,
+ Inhiber(Cohérence des circonstances) ,
+ Libérer(Cohérence du constat) ,
+ Trouver(C§cohérence) ,
+ Libérer(Cohérence du constat) )
     </Method>
   </TASK>
  </TASKS>
