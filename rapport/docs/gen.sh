@@ -48,9 +48,9 @@ echo "
 \usepackage{geometry}
 \geometry{
 	a4paper,  % 21 x 29,7 cm
-	body={160mm,240mm},
-	left=25mm, 
-	top=25mm,
+	body={150mm,230mm},
+	left=30mm, 
+	top=30mm,
 	headheight=7mm, 
 	headsep=4mm,
 	marginparsep=4mm,
@@ -89,6 +89,7 @@ echo "
 echo "
 % Begining of the document
 \begin{document}
+\large
 " >> ${FILE}
 
 # Main part
