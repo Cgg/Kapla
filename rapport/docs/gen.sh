@@ -90,6 +90,7 @@ echo "
 % Begining of the document
 \begin{document}
 \large
+\onehalfspacing
 " >> ${FILE}
 
 # Main part
